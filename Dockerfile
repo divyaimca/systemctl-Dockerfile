@@ -3,7 +3,7 @@ MAINTAINER Priyadarshee Kumar
 
 ENV container docker
 
-RUN zypper -n install systemd; zypper clean ; \
+RUN yum -y install systemd; yum clean all; \
 (cd /usr/lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /usr/lib/systemd/system/multi-user.target.wants/*;\
 rm -f /etc/systemd/system/*.wants/*;\
